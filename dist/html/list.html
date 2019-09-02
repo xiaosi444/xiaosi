@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../css/main.css">
+		<title></title>
+	</head>
+	<body>
+	 <header>头部</header>
+	 <div class="list-box">
+		 <div class="list-main">
+			 
+			 <div class="list-top">
+				 <p>
+					 <span><img src="../img/14477406185992.png" alt=""></span>
+					 <a href="#">进入品牌旗舰店</a>		
+				</p>
+				
+				 <ul>
+					<li>
+						<span>Louis Vuitton/LV路易.威登</span>
+						<span>
+							<a href="#"><i class="fx"></i>分享</a>
+							<a href="#">+关注(5)</a>
+							<a href="#">》品牌故事《</a>
+						</span>
+					</li>
+					<li>
+					   路易威登于1854年成立于法国巴黎，从皇室御用到工艺作坊，路易威登的种种经典设计顺应了旅行历史的重要发展。1896年路易·威登Monogram...</li>
+					
+				 </ul>
+			</div>
+			
+			<div class="list-center">
+				<h1>
+					<span>所有品牌</span>
+					<span>></span>
+					<span>Louis Vuitton/LV路易.威登</span>
+				</h1>
+				<ul>
+					<li>
+						<p>
+							<b>腕表</b>
+							<a>时尚</a>
+							<a>瑞表</a>
+						</p>
+						<p>
+							<b>配饰</b>
+							<a>其他</a>
+							<a>丝巾</a>
+							<a>丝巾</a>
+						</p>
+					</li>
+					<li>
+						<p>
+							<b>箱包</b>
+							<a>时尚</a>
+							<a>瑞表</a>
+							<a>丝巾</a>
+							<a>丝巾</a>
+							<a>时尚</a>
+							<a>瑞表</a>
+						</p>
+						<p>
+							<b>鞋子</b>
+							<a>其他</a>
+							<a>丝巾</a>
+							<a>丝巾</a>
+						</p>
+					</li>
+				</ul>
+			</div>
+			 
+			 <div class="list-nav">
+				 <p>
+					 <a>价格区间</a><a>全部</a><a>0-2299</a><a>0-2299</a>
+					 <a>0-2299</a><a>0-2299</a><a>0-2299</a><a>0-2299</a>
+				 </p>
+				 <p> 
+						<i href="#">
+							<span>综合</span>
+							<span>人气</span>
+							<span>新品</span>
+							<span>销量</span>
+							<span>价格</span>	
+						</i> 
+			</p>
+			 </div>
+			 
+			 <div class="list-img">
+				 <dl class="list-img-data">
+					 <dt><img src="../img/148379896332_800x800_350x350.jpg" alt=""></dt>
+					 <dd>预定一个月 METIS 邮差包 棕色女士手拿包 M54656</dd>	
+					 <dd><b>￥</b>40780</dd>
+				</dl>
+				
+			 </div>
+		 </div>
+	  </div>
+	  </div>
+	 <footer>尾页</footer>
+	 <script src="../js/jquery-1.12.4.js"></script>
+	 <script type="text/javascript">
+		$("footer").load("footer.html footer");
+		$("header").load("header.html header",function(){
+			function subindexMenu(){
+				$(".nav-list").mouseenter(function(){
+					$('.submenu').css("display","block")
+				})
+				$(".submenu").mouseleave(function(){
+					$('.submenu').css("display","none");
+				})
+				$("#js-menu").find("li").hover(function(){
+					$(this).css("z-index","9999");
+					$(this).find("h3 a").addClass("on");
+					$(this).find(".listbox").show();
+				},function(){
+					$(this).removeAttr("style");
+					$(this).find("h3 a").removeClass("on");
+					$(this).find(".listbox").hide();
+				});
+				
+			}
+			$(function(){
+				subindexMenu();
+			});
+		}); 
+	 	$.getJSON("../data/db.json",function(data){
+			$.each(data,function(i,item){
+				console.log(data[i].title)
+				let str = `
+				 <dl class="list-img-data">
+				    <dt><img src="${data[i].img}"></dt>
+					<dd>${data[i].title}</dd>
+					<dd>$ ${data[i].price}</dd>		 
+				 </dl>
+				`
+				$(".list-img").append(str);
+			});
+			
+		})
+	 </script>
+	</body>
+</html>
