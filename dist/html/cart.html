@@ -3,13 +3,72 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="../css/main.css">
-		<title>购物车</title>
+		<title>购物车列表</title>
 	</head>
 	<body>
 		<header>头部</header>
 		<div class="cart">
-			
+			<h2>
+				<span>购物车</span><span>填写订单</span><span>付款</span>
+				<span>支付成功</span>
+			</h2>
+			<ul>
+				<li><input type="checkbox" checked="checked"></li>
+				<li>商品名称</li>
+				<li>商品属性</li>
+				<li>购物价</li>
+				<li>购买数量</li>
+				<li>活动信息</li>
+				<li>小计</li>
+				<li>操作</li>
+			</ul>
+			<ol class="cart-str">
+				<li>
+					<input type="checkbox" checked="checked">
+					<img src="../img/14060152638294.jpg" alt="">
+				</li>
+				<li>【预定一个月】 METIS 邮差包 棕色女士手拿包 M40780</li>
+				<li>棕色系列</li>
+				<li>54444</li>
+				<li><i>-</i><input type="text" value="1"><i>+</i></li>
+				<li></li>
+				<li>4545</li>
+				<li>删除</li>
+			</ol>
 		</div>
 		<footer>脚页</footer>
+		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
+		<script type="text/javascript" src="../js/carousel.js"></script>
+		<script type="text/javascript" src="../js/cart.js"></script>
+		<script type="text/javascript">
+			
+			$("header").load("header.html header",function(){
+				function subindexMenu(){
+					$(".nav-list").mouseenter(function(){
+						$('.submenu').css("display","block")
+					})
+					$(".submenu").mouseleave(function(){
+						$('.submenu').css("display","none");
+					})
+					$("#js-menu").find("li").hover(function(){
+						$(this).css("z-index","9999");
+						$(this).find("h3 a").addClass("on");
+						$(this).find(".listbox").show();
+					},function(){
+						$(this).removeAttr("style");
+						$(this).find("h3 a").removeClass("on");
+						$(this).find(".listbox").hide();
+					});
+					
+				}
+				$(function(){
+					subindexMenu();
+				});
+			}); 
+			
+			$("footer").load("footer.html footer"); 
+			
+			
+		</script>
 	</body>
 </html>

@@ -88,18 +88,126 @@ em, i {
 ul, li {
   list-style-type: none; }
 
+.cart {
+  margin-bottom: 10px;
+  width: 1210px;
+  margin: 0 auto; }
+  .cart h2 {
+    height: 50px;
+    font-size: 12px;
+    width: 500px; }
+    .cart h2 span {
+      display: inline-block;
+      width: 80px; }
+  .cart ul {
+    height: 50px;
+    display: flex;
+    line-height: 50px;
+    background: #ebeaea;
+    padding-left: 10px; }
+    .cart ul li {
+      flex: 1;
+      height: 30px;
+      text-align: center; }
+      .cart ul li:nth-child(1) {
+        text-align: left; }
+      .cart ul li:nth-child(2) {
+        flex: 2;
+        text-align: center; }
+  .cart ol {
+    height: 100px;
+    display: flex;
+    padding-left: 10px;
+    margin-top: 30px; }
+    .cart ol li {
+      float: left;
+      flex: 1;
+      text-align: center; }
+      .cart ol li img {
+        width: 100px;
+        height: 80px;
+        float: left; }
+      .cart ol li:nth-child(2) {
+        flex: 2;
+        text-align: center; }
+      .cart ol li input:nth-child(1) {
+        float: left;
+        margin-top: 20px; }
+      .cart ol li input:nth-child(2) {
+        width: 20%;
+        text-align: center; }
+
+@charset "UTF-8";
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button,
+form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup,
+menu, nav, section {
+  margin: 0;
+  padding: 0; }
+
+a {
+  text-decoration: none !important;
+  color: #333333; }
+
+body {
+  font: 12px/1.5 'Microsoft YaHei','宋体', Tahoma, Arial, sans-serif; }
+
+em, i {
+  font-style: normal; }
+
+ul, li {
+  list-style-type: none; }
+
 .cart-list {
   width: 1210px;
   margin: 0 auto;
   overflow: hidden; }
   .cart-list .cart-list-top {
     height: 635px;
-    overflow: hidden; }
+    overflow: hidden;
+    position: relative;
+    z-index: 999;
+    /*放大镜显示区域*/ }
+    .cart-list .cart-list-top #magnifyingShow {
+      width: 520px;
+      height: 478px;
+      display: none;
+      position: absolute;
+      left: 600px;
+      top: 0;
+      z-index: 99999;
+      overflow: hidden;
+      background-color: #454545; }
+      .cart-list .cart-list-top #magnifyingShow img {
+        width: 1040px;
+        height: 956px;
+        margin-left: 0;
+        margin-top: 0; }
     .cart-list .cart-list-top .cart-list-top-left {
       width: 520px;
       height: 617px;
       border: 1px solid #999999;
-      float: left; }
+      float: left;
+      position: relative;
+      /*滑块*/ }
+      .cart-list .cart-list-top .cart-list-top-left .magnifyingBegin {
+        width: 100px;
+        height: 100px;
+        left: 0;
+        top: 0;
+        background-color: #454545;
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+        position: absolute;
+        cursor: move;
+        display: none; }
+      .cart-list .cart-list-top .cart-list-top-left .con-fangDaIMg {
+        width: 520px;
+        height: 470px;
+        position: relative;
+        background-color: #454545; }
+        .cart-list .cart-list-top .cart-list-top-left .con-fangDaIMg img {
+          width: 100%;
+          height: 100%; }
       .cart-list .cart-list-top .cart-list-top-left p {
         height: 30px;
         line-height: 20px; }
@@ -111,6 +219,7 @@ ul, li {
       .cart-list .cart-list-top .cart-list-top-left ul {
         width: 520px;
         height: 478px;
+        position: relative;
         border-bottom: 1px solid #333333;
         overflow: hidden; }
         .cart-list .cart-list-top .cart-list-top-left ul li {
@@ -120,9 +229,17 @@ ul, li {
           display: none; }
           .cart-list .cart-list-top .cart-list-top-left ul li img {
             width: 100%;
-            height: 100%; }
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -5; }
+          .cart-list .cart-list-top .cart-list-top-left ul li .active {
+            border-color: #000; }
         .cart-list .cart-list-top .cart-list-top-left ul .on {
           display: block; }
+        .cart-list .cart-list-top .cart-list-top-left ul .on1 {
+          border: 1px solid #000000; }
       .cart-list .cart-list-top .cart-list-top-left div {
         height: 88px;
         width: 520px;
@@ -164,7 +281,9 @@ ul, li {
     .cart-list .cart-list-top .cart-list-top-right {
       width: 630px;
       height: 720px;
-      float: right; }
+      float: right;
+      position: relative;
+      z-index: -9; }
       .cart-list .cart-list-top .cart-list-top-right ul {
         /* height:90px; */
         border-bottom: 1px dotted #bfbfbf; }

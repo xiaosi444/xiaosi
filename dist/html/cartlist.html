@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>购物车列表</title>
+		<title>购物车</title>
 		<link rel="stylesheet" href="../css/main.css">
 	</head>
 	<body>
@@ -11,37 +11,31 @@
 		<!-- 	...............top................................ -->
 			<div class="cart-list-top">
 				
-				<div class="cart-list-top-left">
-					<ul class="cart-max">
-						<li class="on"><img src="../img/14603535486380.jpg" alt=""></li>
-						<li><img src="../img/14603535489785.jpg" alt=""></li>
-						<li><img src="../img/14603547324113.jpg" alt=""></li>
-						<li><img src="../img/14603535499314.jpg" alt=""></li>
-						<li><img src="../img/14603535481434.jpg" alt=""></li>
-						<li><img src="../img/14603547324113.jpg" alt=""></li>
-						<li><img src="../img/14603535499314.jpg" alt=""></li>
-						<li><img src="../img/14603535481434.jpg" alt=""></li>
+				<div class="cart-list-top-left con-FangDa" id="fangdajing">
+				<!-- 	<p class="magnifyingShow" id="magnifyingShow"><img src="../img/14603535489785.jpg"></p> -->
+					 <ul class="con-fangDaIMg">
+					  <img src="../img/14603535489785.jpg"/>
+					    <li class="magnifyingBegin"></li>					
 					</ul>
-					
+				
+					 
 					<div>
 						<i class="btl"></i>
-						<ol class="cart-min">		
-							<li><img src="../img/14603535486380.jpg" alt=""></li>
-							<li><img src="../img/14603535489785.jpg" alt=""></li>
-							<li><img src="../img/14603547324113.jpg" alt=""></li>
-							<li><img src="../img/14603535499314.jpg" alt=""></li>
-							<li><img src="../img/14603535481434.jpg" alt=""></li>
-							<li><img src="../img/14603547324113.jpg" alt=""></li>
-							<li><img src="../img/14603535499314.jpg" alt=""></li>
-							<li><img src="../img/14603535481434.jpg" alt=""></li>
-						</ol>
+						
+						<ol class="con-FangDa-ImgList cart-min">		
+				            <li class="active"><img src="../img/14603535489785.jpg" data-bigimg="../img/14603535489785.jpg"></li>
+							<li><img  src="../img/14603547324113.jpg"   data-bigimg="../img/14603547324113.jpg"></li>
+							<li><img src="../img/14603535499314.jpg"    data-bigimg="../img/14603547324113.jpg"></li>
+							<li><img src="../img/14603535481434.jpg"    data-bigimg="../img/14603547324113.jpg"></li>
+							<li><img src="../img/14603535481434.jpg"    data-bigimg="../img/14603535481434.jpg"></li>
+						</ol>		
 						<i class="btr"></i>
 					</div>
 					
 					<p><span><i></i>分享</span><span><i></i>收藏</span></p>
+								
 				</div>
-		<!--.....................cart-list-top-right............... -->
-				<div class="cart-list-top-right">
+				<div class="cart-list-top-right " data-good-id="sp1">
 					<ul>
 						<li>Manolo Blahnik莫罗.伯拉尼克</li>
 						<li>BB 105 Pump</li>
@@ -50,21 +44,21 @@
 					
 					<ul>
 						<li>
-						    <a href="">￥4454545</a>
-							<a href="">红卡会员</a>
+						    <a href="#" class="rmb">￥4454545</a>
+							<a href="#">红卡会员</a>
 							<a href="#"><i><img src="../img/149697742783_27x26.jpg" alt=""></i>扫码下载客户端</a>
 						</li>
 						
 						<li><span>分期价</span><b>￥787799</b><i>*12期</i></li>
 						
 						<li><img src="../img/147798675690_560x40.png" alt=""></li>
-						<li><span>颜色</span><a href="#">棕色</a></li>
+						<li><span>颜色</span><a href="#" class="secai">棕色</a></li>
 						<li>
 							<span>数量</span>
 							<a>
-								<i>--</i>
-								<input type="text" value="1">
-								<i>+</i>		
+								<i class="jian4">--</i>
+								<input type="text" value="1" class="num">
+								<i class="jia4">+</i>		
 							</a>
 						</li>
 						
@@ -78,7 +72,10 @@
 						<li><span>发货门店</span><a href="#">预计6-15个工作日发货，延迟发货慢必赔！预计6-15个工作日发货，延迟发货慢必赔！</a></li>
 					</ol>
 					
-					<p><span>立即购买</span><span><i></i><em>加入购物袋</em></span></p>
+					<p>
+						<span>立即购买</span>
+					    <span class="gouwu"><i></i><em>加入购物袋</em></span>
+					</p>
 					<h2>
 						<span>
 							<b><img src="../img/footer_message03.jpg" alt=""></b>
@@ -200,8 +197,12 @@
 		</div>
 		<footer>脚页</footer>
 		<script type="text/javascript" src="../js/jquery-1.12.4.js"></script>
-		<script type="text/javascript" src="../js/cart.js"></script>
+		<!-- <script type="text/javascript" src="../js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="../js/zzsc.js"></script> -->
+	    <script type="text/javascript" src="../js/cartlist.js"></script>
+		
 		<script>
+		/* 导入头部页脚	 */
 		$("header").load("header.html header",function(){
 			function subindexMenu(){
 				$(".nav-list").mouseenter(function(){
@@ -227,6 +228,13 @@
 		}); 
 		
 		$("footer").load("footer.html footer"); 
+		
+		$(".jia4").click(function(){
+			alert(4)
+		})
+		$(".jian4").click(function(){
+			alert(4)
+		})
 		</script>
 	</body>
 </html>

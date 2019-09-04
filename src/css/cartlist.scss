@@ -6,11 +6,55 @@
 	.cart-list-top{
 	    height:635px;
 		overflow: hidden;
+		position:relative;
+		z-index:999;
+		/*放大镜显示区域*/
+		#magnifyingShow{
+			width: 520px;
+			height:478px;
+			display: none;
+			position: absolute;
+			left:600px;
+			top: 0;
+			z-index: 99999;
+			overflow: hidden;
+			background-color: #454545;
+		    img{
+				width: 1040px;
+				height: 956px;
+				margin-left:0;
+				margin-top: 0;
+			}
+		}
 		.cart-list-top-left{
 			width: 520px;
 			height: 617px;
 			border: 1px solid #999999;
 			float:left;
+			position:relative;
+			/*滑块*/
+			.magnifyingBegin{
+				width: 100px;
+				height: 100px;
+				left: 0;
+				top: 0;
+				background-color: #454545;
+				opacity: 0.5;
+				filter:alpha(opacity=50);
+				position: absolute;
+				cursor: move;
+				display: none;
+			}
+			.con-fangDaIMg{
+				width: 520px;
+				height: 470px;
+				position: relative;
+				background-color: #454545;
+			  img{
+				width: 100%;
+				height:100%;
+				}
+			}
 			p{
 				height:30px;
 				line-height:20px;
@@ -24,8 +68,9 @@
 			ul{
 				width: 520px;
 				height:478px;
+				position:relative;
 				border-bottom: 1px solid #333333;
-			     overflow: hidden; 
+			    overflow: hidden; 
 				li{
 					width: 520px;
 					height:478px;
@@ -34,12 +79,23 @@
 					img{
 						width: 100%;
 						height:100%;
+						position:absolute;
+						top:0;
+						left:0;
+						z-index: -5;
+					}
+					.active{
+						border-color:#000;
 					}
 				}
 				.on{
 					display: block;
 				}
+				.on1{
+					border: 1px solid #000000;
+				}
 			}
+			
 			div{
 				height:88px;
 				width: 520px;
@@ -90,10 +146,15 @@
 			}
 		}
 			
+			
+			
+			
 		.cart-list-top-right{
 			width: 630px;
 			 height:720px;
 			float: right;
+			position:relative;
+			z-index:-9;
 			ul{
 				/* height:90px; */
 				border-bottom:1px dotted #bfbfbf;

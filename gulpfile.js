@@ -3,6 +3,7 @@ var  gulp  = require('gulp'),
      sass  = require('gulp-sass');
 	 uglify=  require('gulp-uglify'),
 	 imagemin =require('gulp-imagemin'),
+	 babel = require("gulp-babel"),
 	 concat  =require('gulp-concat');
 
 gulp.task('css',()=>{
@@ -14,6 +15,7 @@ gulp.task('css',()=>{
 gulp.task('js',()=>{
 	return gulp.src('./src/js/*.js')
 		.pipe(uglify())
+		.pipe(babel({"presets": ["es2015"]}));
 		.pipe(gulp.dest('./dist/js'));
 })
 gulp.task('img',()=>{
